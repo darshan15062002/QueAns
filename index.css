@@ -1,0 +1,36 @@
+body{
+    background-color: rgb(22, 134, 171);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+.container{
+    height: 300px;
+    width: 400px;
+    background: white;
+    border-radius: 10px;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+    flex-direction: column;
+    text-align: left;
+}
+.game{
+    width: 70%;
+    height: 70%;
+}
+.result{
+    display:none;
+}
+
+/* button{
+    padding: 10px 5px;
+    background: blueviolet;
+    color: white;
+    width: 100%;
+    font-family: sans-serif;
+    font-weight: 700;
+    
+} */
