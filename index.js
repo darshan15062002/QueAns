@@ -28,19 +28,68 @@ const data = [
             { answer: "ants", isCorrect: false },
         ],
     },
+    {
+        id: 4,
+        question: "Which of these fish is actually a fish?",
+        answers: [
+            { answer: "swordfish", isCorrect: true },
+            { answer: "jellyfish", isCorrect: false },
+            { answer: "starfish", isCorrect: false },
+            { answer: "crayfish", isCorrect: false },
+        ],
+    },
+    {
+        id: 5,
+        question: "Which of these fish is actually a fish?",
+        answers: [
+            { answer: "swordfish", isCorrect: true },
+            { answer: "jellyfish", isCorrect: false },
+            { answer: "starfish", isCorrect: false },
+            { answer: "crayfish", isCorrect: false },
+        ],
+    },
+    {
+        id: 6,
+        question: "Which of these fish is actually a fish?",
+        answers: [
+            { answer: "swordfish", isCorrect: true },
+            { answer: "jellyfish", isCorrect: false },
+            { answer: "starfish", isCorrect: false },
+            { answer: "crayfish", isCorrect: false },
+        ],
+    }
+    , {
+        id: 7,
+        question: "Which of these fish is actually a fish?",
+        answers: [
+            { answer: "swordfish", isCorrect: true },
+            { answer: "jellyfish", isCorrect: false },
+            { answer: "starfish", isCorrect: false },
+            { answer: "crayfish", isCorrect: false },
+        ],
+    }
 ];
-const question = document.querySelector('.question')
+const que = document.querySelector('.question')
 const answer = document.querySelector('.answers')
 const submit = document.querySelector('.submit')
+const result = document.querySelector('.result')
+const game = document.querySelector('.game')
+const score = document.querySelector('.score')
+const correct = document.querySelector('.correct')
+const wrong = document.querySelector('.wrong')
+const playAgain = document.querySelector('.playAgain')
 
-var queid = 0
-var marks = 0
-var correctAns = 0
-var wrongAns = 0
+
+let queid = 0
+let marks = 0
+let correctAns = 0
+let wrongAns = 0
+let selectAns;
 
 
 const showQuestion = (queid) => {
-    question.textContent = data[queid].question
+    selectAns = null
+    que.textContent = data[queid].question
     answer.innerHTML = data[queid].answers.map((item, index) => `
     <div className="answer">
     <input type="radio" name="answer"  value=${item.isCorrect} id=${index} />
@@ -49,29 +98,65 @@ const showQuestion = (queid) => {
     `).join("")
     isTrue()
 }
-showQuestion(queid)
+
 
 function isTrue() {
-    answer.addEventListener('click', (e) => {
-        console.log(e.target.value);
-        isSubmit(e)
+    answer.querySelectorAll("input").forEach((el) => {
+        el.addEventListener('click', (e) => {
+            selectAns = e.target.value
+        })
     })
 }
 
-function isSubmit(e) {
-    submit.addEventListener('click', (e) => {
-    //     if (e.target.value == 'true') {
-    //         marks++
-    //         correctAns++
-    //         console.log(marks);
-    //     }
 
-    //     else {
-    //         marks--
-    //         wrongAns++
-    //     }
-    //     queid++
-    // })
+
+submit.addEventListener('click', (e) => {
+    console.log(e.target.value);
+    if (selectAns != null) {
+        if (selectAns == 'true') {
+            marks++
+            correctAns++
+
+        }
+        else {
+            marks--
+            wrongAns++
+        }
+        queid++
+
+        console.log(marks);
+        if (queid < 7) {
+            showQuestion(queid)
+        }
+        else {
+            result.style.display = 'block'
+            game.style.display = 'none'
+            if (marks < 0) {
+                marks = 0
+            }
+            score.textContent = `Totle Score :-${marks}`
+            wrong.textContent = `Wrong Answers :- ${wrongAns}`
+            correct.textContent = `Correct Answers :- ${correctAns}`
+            playAgain.addEventListener('click', () => {
+
+                marks = 0
+                correctAns = 0
+                wrongAns = 0
+                result.style.display = 'none'
+                game.style.display = 'flex'
+                queid = 0
+                showQuestion(queid)
+            })
+
+
+        }
+    }
+    else {
+        alert('please select option')
+    }
+
+
 })
-}
 
+
+showQuestion(queid)

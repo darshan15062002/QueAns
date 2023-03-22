@@ -17,15 +17,47 @@ body{
     flex-direction: column;
     text-align: left;
 }
+.question{
+    margin: 0%;
+}
 .game{
+    text-align: left;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    flex-direction: column;
+    gap:20px;
     width: 70%;
     height: 70%;
 }
+.content{
+
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+}
 .result{
+    width: 70%;
+    height: 70%;
     display:none;
 }
+.wrong{
+    color: red;
+    font-size: medium;
+font-family: sans-serif;
+    
+}
+.correct{
+color: green;
+font-size: medium;
+font-family: sans-serif;
+}
+.score{
+    font-size: larger;
+    color: black;
+}
 
-/* button{
+button{
     padding: 10px 5px;
     background: blueviolet;
     color: white;
@@ -33,4 +65,4 @@ body{
     font-family: sans-serif;
     font-weight: 700;
     
-} */
+}
