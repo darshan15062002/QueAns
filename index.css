@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(22, 134, 171);
+    background-color: rgb(14, 213, 94);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,7 +7,7 @@ body{
     overflow: hidden;
 }
 .container{
-    height: 300px;
+    height: 70%;
     width: 400px;
     background: white;
     border-radius: 10px;
@@ -16,6 +16,7 @@ body{
   align-items: center;
     flex-direction: column;
     text-align: left;
+   
 }
 .question{
     margin: 0%;
@@ -24,8 +25,9 @@ body{
     font-weight: 700;
 }
 .answer{
-    font-size: 14px;
+    font-size: 12px;
     font-family: sans-serif;
+    margin-bottom: 5px;
     font-weight: 400;
 }
 .game{
@@ -34,12 +36,13 @@ body{
     justify-self: center;
     align-items: center;
     flex-direction: column;
+    position: relative;
     gap:20px;
     width: 70%;
     height: 70%;
 }
 .content{
-
+   
    display: flex;
    flex-direction: column;
    gap: 10px;
@@ -48,6 +51,7 @@ body{
     width: 70%;
     height: 70%;
     display:none;
+    position: relative;
 }
 .wrong{
     color: red;
@@ -66,11 +70,13 @@ font-family: sans-serif;
 }
 
 button{
+    position: absolute;
     padding: 10px 5px;
     background: blueviolet;
     color: white;
     width: 100%;
     font-family: sans-serif;
     font-weight: 700;
+    bottom: 10px;
     
 }
